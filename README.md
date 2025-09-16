@@ -1,9 +1,12 @@
 # File Trunknizer - Make file sizes to 1
 
 ### Description
-- Safely truncate file contents for repository upload
+I created this Python app to add a large number of dummy sample files to the repository without the burden of large file sizes.
+
+- Safely make target files' content to just one character "a" for reduce file size by 1.
 - CLI only, no GUI
 - No Python required, distributed as exe
+- Language: Korean, English
 
 ### Release
 - 250913 First release
@@ -12,19 +15,24 @@
 
 ### Usage
 #### Windows
-- just double click the .exe file
-- or if you want to run on CLI do this: (but not recommended for safety)
+1) DOUBLE CLICK
+```text
+Just double click the .exe file.
+```
+2) CLI
 ```bash
+[Exact usage]
 file_trunknizer.exe [-h] [--lang {ko,en}] [folder] [pattern]
 file_trunknizer_en_win.exe [folder_path] [extension string]
 file_trunknizer_ko_win.exe [folder_path] [extension string]
 
-e.g.
-file_trunknizer_ko_win.exe "C:\txt_files" "*.txt"
-python .\file_trunknizer.py --lang en "C:\txt_files" "*.txt"
+[Examples]
+1) run EXE
+   file_trunknizer_ko_win.exe "C:\txt_files" "*.txt"
+2) Run python code
+   python .\file_trunknizer.py --lang en "C:\txt_files" "*.txt"
+3) Show help
+   file_trunknizer_en_win.exe --help
 ```
-#### Options: use CLI help
-```bash
-file_trunknizer_en_win.exe --help
-file_trunknizer_ko_win.exe --help
-```
+
+Have a good day.
