@@ -15,8 +15,13 @@
 - just double click the .exe file
 - or if you want to run on CLI do this: (but not recommended for safety)
 ```bash
-file_trunknizer_en_win.exe [options] file_path
-file_trunknizer_ko_win.exe [options] file_path
+file_trunknizer.exe [-h] [--lang {ko,en}] [folder] [pattern]
+file_trunknizer_en_win.exe [folder_path] [extension string]
+file_trunknizer_ko_win.exe [folder_path] [extension string]
+
+e.g.
+file_trunknizer_ko_win.exe "C:\txt_files" "*.txt"
+python .\file_trunknizer.py --lang en "C:\txt_files" "*.txt"
 ```
 #### Options: use CLI help
 ```bash

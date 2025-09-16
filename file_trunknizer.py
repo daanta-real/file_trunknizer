@@ -60,6 +60,11 @@ def main():
     parser = argparse.ArgumentParser(description="File Trunknizer")
     parser.add_argument("--lang", default="ko", choices=LOCALES.keys(),
                         help="Language (ko or en)")
+
+    # 'folder'와 'pattern' 인자
+    parser.add_argument('folder', nargs='?', default=None, help="작업할 폴더 경로")
+    parser.add_argument('pattern', nargs='?', default=None, help="검색할 파일 패턴")
+
     args = parser.parse_args()
     text = LOCALES[args.lang]
 
@@ -69,15 +74,23 @@ def main():
     print(text["desc"])
     print("=" * 60)
 
-    # 1. 폴더 입력
-    folder = input("\n" + text["input_folder"]).strip()
+    # 1. 폴더 입력: 명령줄 인자(args.folder)가 없으면 사용자에게 입력받음
+    if args.folder:
+        folder = args.folder
+    else:
+        folder = input("\n" + text["input_folder"]).strip()
+
     if not os.path.isdir(folder):
         print(text["no_folder"].format(folder))
         sys.exit(1)
     print("\n" + text["folder_ok"].format(folder))
 
-    # 2. 검색 패턴 입력
-    pattern = input("\n" + text["input_pattern"]).strip()
+    # 2. 검색 패턴 입력: 명령줄 인자(args.pattern)가 없으면 사용자에게 입력받음
+    if args.pattern:
+        pattern = args.pattern
+    else:
+        pattern = input("\n" + text["input_pattern"]).strip()
+
     search_path = os.path.join(folder, pattern)
     files = glob.glob(search_path)
 
